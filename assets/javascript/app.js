@@ -3,6 +3,7 @@
 // set variables
 // define function for running, time going down and stopping
 // on click so user can start and also manually stop timer
+// on submit, answers are calculated and score is shown
 
 
 $(document).ready(function() {
@@ -11,6 +12,39 @@ $(document).ready(function() {
   var intervalId;
   //var clockRunning = false;
   var time = 10; 
+
+  var questions = [
+  {
+    question: "XYZ",
+    choices: ["ans1", "ans2", "ans3", "ans4"],
+    correctAnswer: [1]
+  },
+  {
+    question: "ABC",
+    choices: ["ans1", "ans2", "ans3", "ans4"],
+    correctAnswer: [0],
+  },
+  {
+    question: "DEF",
+    choices: ["ans1", "ans2", "ans3", "ans4"],
+    correctAnswer: [3],
+  },
+  {
+    question: "GHI",
+    choices: ["ans1", "ans2", "ans3", "ans4"],
+    correctAnswer: [1],
+  },
+  {
+    question: "JKL",
+    choices: ["ans1", "ans2", "ans3", "ans4"],
+    correctAnswer: [2],
+  },
+  {
+    question: "MNO",
+    choices: ["ans1", "ans2", "ans3", "ans4"],
+    correctAnswer: [1]
+  }
+  ]
 
   // Timer run function
   function run() {
@@ -48,3 +82,4 @@ $(document).ready(function() {
   $("#submit-quiz").on("click", submit);  
 
 })
+
