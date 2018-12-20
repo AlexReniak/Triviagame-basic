@@ -1,7 +1,11 @@
-body {
+ body {
   background: #ccf2ff;
-}
+}   
 
 p {
   font-size: 1.2em;
+}
+
+.jumbotron {
+  border-radius: 0px;
 }
