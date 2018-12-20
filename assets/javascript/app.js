@@ -54,6 +54,19 @@
   //   questionsArr.questionOne.userInput = $(this).val()
   // })
 
+  // add questions to html
+  $("#question-one-text").text(questionsArr.questionOne.question);
+
+  $("#question-two-text").text(questionsArr.questionTwo.question);
+
+  $("#question-three-text").text(questionsArr.questionThree.question);
+
+  $("#question-four-text").text(questionsArr.questionFour.question);
+
+  $("#question-five-text").text(questionsArr.questionFive.question);
+
+  $("#question-six-text").text(questionsArr.questionSix.question);
+
   // storing user answers from their input
   $("#questionone").on("change", function() {
     questionsArr.questionOne.userInput = $("input[name='question1']:checked").val();
