@@ -2,23 +2,26 @@
   background: #ccf2ff;
 }    */
 
-.jumbotron {
-  background: url(../images/free-old-paper-textures-and-parchment-paper-backgrounds-www-2.jpg)
-}
-
 body {
   background: url(../images/free-old-paper-textures-and-parchment-paper-backgrounds-www-2.jpg)
 }
 
 .radio {
   font-weight: 600;
+  font-size: 1.2em;
 }
 
 p {
-  font-size: 1.3em;
+  font-size: 1.4em;
   font-weight: 600;
 }
 
 .jumbotron {
   border-radius: 0px;
+  background: url(../images/free-old-paper-textures-and-parchment-paper-backgrounds-www-2.jpg);
+}
+
+#radio-six {
+  font-weight: 600;
+  font-size: 1.2em;
 }
