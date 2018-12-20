@@ -1,9 +1,9 @@
 
 // document.ready for page to load before user can start
-// set variables
+// set variables and array
 // define function for running, time going down and stopping
 // on click so user can start and also manually stop timer
-// on submit, answers are calculated and score is shown
+// on submit (either clicking submit or time running out), answers are calculated and score is shown
 
 
   // variables
@@ -13,7 +13,7 @@
   var incorrectAnswers = 0;
   var totalQuestions = 6;
 
-  // question, answer and user input in an array
+  // question, answer and user input all in an array
   var questionsArr = [{
       question: "Alexander the Great was taught by which Greek philosopher?",
       correctAnswer: "Aristotle",
@@ -31,7 +31,7 @@
     },
     {
       question: "American mobster Al Capone was sentanced to 11 years in prison for what crime?",
-      correctAnswer: "Tax evasion",
+      correctAnswer: "Tax Evasion",
       userInput: ""
     },
     {

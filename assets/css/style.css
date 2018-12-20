@@ -1,31 +1,37 @@
- /* body {
-  background: #ccf2ff;
-}    */
-
 body {
-  background: url(../images/free-old-paper-textures-and-parchment-paper-backgrounds-www-2.jpg)
+  background: url(../images/background-images-4.jpg)
 }
 
-.radio {
-  font-weight: 600;
-  font-size: 1.2em;
+h1 {
+  color: #000;
 }
 
-p {
-  font-size: 1.4em;
-  font-weight: 600;
+h2 {
+  font-family: 'Tangerine', cursive;
+  font-weight: 700;
+  font-size: 3.2em;
 }
+
 
 .jumbotron {
   border-radius: 0px;
-  background: url(../images/free-old-paper-textures-and-parchment-paper-backgrounds-www-2.jpg);
+  background: url(../images/background-images-4.jpg);
 }
 
- /* #radio-q6 {
-  font-weight: 600;
-  font-size: 1.2em;
-} 
+#instructions {
+  color: #000;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.4em;
+}
 
-#questionsixheading {
+p {
+  font-family: 'Tangerine', cursive;
+  font-size: 2.8em;
+  font-weight: 700;
+}
 
-} */
+.radio {
+  font-family: 'Tangerine', cursive;
+  font-weight: 700;
+  font-size: 2.8em;
+}
