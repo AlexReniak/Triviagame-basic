@@ -13,7 +13,7 @@
   var incorrectAnswers = 0;
   var totalQuestions = 6;
 
-  // question, answer and user answer array
+  // question, answer and user input in an array
   var questionsArr = [{
       question: "Alexander the Great was taught by which Greek philosopher?",
       correctAnswer: "Aristotle",
@@ -46,6 +46,7 @@
     }
   ]
 
+  // console.log correct answers
   console.log(questionsArr[0].correctAnswer);
   console.log(questionsArr[1].correctAnswer);
   console.log(questionsArr[2].correctAnswer);
@@ -53,11 +54,6 @@
   console.log(questionsArr[4].correctAnswer);
   console.log(questionsArr[5].correctAnswer);
 
-
-  // store user answers
-  // $("#questionone").on("change", function() {
-  //   questionsArr.questionOne.userInput = $(this).val()
-  // })
 
   // add questions to html
   $("#question-one-text").text(questionsArr[0].question);
@@ -73,6 +69,7 @@
   $("#question-six-text").text(questionsArr[5].question);
 
   // storing user answers from their input
+  // console.log user input 
   $("#questionone").on("change", function() {
     questionsArr[0].userInput = $("input[name='question1']:checked").val();
     console.log(questionsArr[0].userInput);
@@ -104,7 +101,7 @@
   })
 
   // submit function to be run if time = 0 or user clicks submit button
-  // clears timer and checks how many answer are correct and incorrect and then alerts user
+  // clears timer and checks how many answer are correct and incorrect and then alerts user of their score
   function submit() {
     clearInterval(intervalId);
 
@@ -130,7 +127,7 @@
       intervalId = setInterval(decrement, 1000);
     }
 
-    // Losing time! (decrease timer)
+    // Losing time! (decrease time function)
     // add timer to html
     function decrement() {
       time--
@@ -138,6 +135,7 @@
       $("#timer").html("<h2>" + "Time remaining: " + time + "</h2>");
       
     // if function for timer when it reaches zero (before submit button is clicked)
+    // alerts user that time is up and runs submit function
       if (time === 0 ) {
         alert("Time's up!");
         submit();
