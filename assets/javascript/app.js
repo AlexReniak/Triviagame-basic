@@ -13,40 +13,45 @@
   var incorrectAnswers = 0;
   var totalQuestions = 6;
 
-  // question and answer array
-  var questionsArr = {
-    questionOne: {
+  // question, answer and user answer array
+  var questionsArr = [{
       question: "Alexander the Great was taught by which Greek philosopher?",
       correctAnswer: "Aristotle",
       userInput: ""
     },
-    questionTwo: {
+    {
       question: "Which country financed Christopher Columbus' 1492 exploration?",
       correctAnswer: "Spain",
       userInput: ""
     },
-    questionThree: {
+    {
       question: "Jack the Ripper is the name given to an unidentified serial killer that terrorized what city in 1888?",
       correctAnswer: "London",
       userInput: ""
     },
-    questionFour: {
+    {
       question: "American mobster Al Capone was sentanced to 11 years in prison for what crime?",
       correctAnswer: "Tax evasion",
       userInput: ""
     },
-    questionFive: {
+    {
       question: "Which explorer was the first credited with circumnavigating the earth?",
       correctAnswer: "Ferdinand Magellan",
       userInput: ""
     },
-    questionSix: {
+    {
       question: "Who painted the Sistine Chapel?",
       correctAnswer: "Michelangelo",
       userInput: ""
     }
-  };
+  ]
 
+  console.log(questionsArr[0].correctAnswer);
+  console.log(questionsArr[1].correctAnswer);
+  console.log(questionsArr[2].correctAnswer);
+  console.log(questionsArr[3].correctAnswer);
+  console.log(questionsArr[4].correctAnswer);
+  console.log(questionsArr[5].correctAnswer);
 
 
   // store user answers
@@ -55,99 +60,62 @@
   // })
 
   // add questions to html
-  $("#question-one-text").text(questionsArr.questionOne.question);
+  $("#question-one-text").text(questionsArr[0].question);
 
-  $("#question-two-text").text(questionsArr.questionTwo.question);
+  $("#question-two-text").text(questionsArr[1].question);
 
-  $("#question-three-text").text(questionsArr.questionThree.question);
+  $("#question-three-text").text(questionsArr[2].question);
 
-  $("#question-four-text").text(questionsArr.questionFour.question);
+  $("#question-four-text").text(questionsArr[3].question);
 
-  $("#question-five-text").text(questionsArr.questionFive.question);
+  $("#question-five-text").text(questionsArr[4].question);
 
-  $("#question-six-text").text(questionsArr.questionSix.question);
+  $("#question-six-text").text(questionsArr[5].question);
 
   // storing user answers from their input
   $("#questionone").on("change", function() {
-    questionsArr.questionOne.userInput = $("input[name='question1']:checked").val();
-    console.log(questionsArr.questionOne.userInput);
+    questionsArr[0].userInput = $("input[name='question1']:checked").val();
+    console.log(questionsArr[0].userInput);
   })
 
   $("#questiontwo").on("change", function() {
-    questionsArr.questionTwo.userInput = $("input[name='question2']:checked").val();
-    console.log(questionsArr.questionTwo.userInput);
+    questionsArr[1].userInput = $("input[name='question2']:checked").val();
+    console.log(questionsArr[1].userInput);
   })
   
   $("#questionthree").on("change", function() {
-    questionsArr.questionThree.userInput = $("input[name='question3']:checked").val();
-    console.log(questionsArr.questionThree.userInput);
+    questionsArr[2].userInput = $("input[name='question3']:checked").val();
+    console.log(questionsArr[2].userInput);
   })
 
   $("#questionfour").on("change", function() {
-    questionsArr.questionFour.userInput = $("input[name='question4']:checked").val();
-    console.log(questionsArr.questionFour.userInput);
+    questionsArr[3].userInput = $("input[name='question4']:checked").val();
+    console.log(questionsArr[3].userInput);
   })
 
   $("#questionfive").on("change", function() {
-    questionsArr.questionFive.userInput = $("input[name='question5']:checked").val();
-    console.log(questionsArr.questionFive.userInput)
+    questionsArr[4].userInput = $("input[name='question5']:checked").val();
+    console.log(questionsArr[4].userInput)
   })
 
   $("#questionsix").on("change", function() {
-    questionsArr.questionSix.userInput = $("input[name='question6']:checked").val();
-    console.log(questionsArr.questionSix.userInput)
+    questionsArr[5].userInput = $("input[name='question6']:checked").val();
+    console.log(questionsArr[5].userInput)
   })
 
   // submit function to be run if time = 0 or user clicks submit button
   // clears timer and checks how many answer are correct and incorrect and then alerts user
   function submit() {
     clearInterval(intervalId);
-    if (questionsArr.questionOne.userInput === questionsArr.questionOne.correctAnswer) { 
-      correctAnswers++
-    }
 
-    else {
-      incorrectAnswers++
-    }
+    for (var i=0; i < 6; i++) {
+      if (questionsArr[i].correctAnswer === questionsArr[i].userInput) {
+        correctAnswers++
+      }
 
-    if (questionsArr.questionTwo.userInput === questionsArr.questionTwo.correctAnswer) {
-      correctAnswers++
-    }
-
-    else {
-      incorrectAnswers++
-    }
-
-    if (questionsArr.questionThree.userInput === questionsArr.questionThree.correctAnswer) {
-      correctAnswers++
-    }
-
-    else {
-      incorrectAnswers++
-    }
-
-    if (questionsArr.questionFour.userInput === questionsArr.questionFour.correctAnswer) {
-      correctAnswers++
-    }
-
-    else {
-      incorrectAnswers++
-    }
-
-    if (questionsArr.questionFive.userInput === questionsArr.questionFive.correctAnswer) {
-      correctAnswers++
-    }
-
-    else {
-      incorrectAnswers++
-    }
-    
-    if(questionsArr.questionSix.userInput === questionsArr.questionSix.correctAnswer) {
-      correctAnswers++
-    }
-
-    else {
-      incorrectAnswers++
+      else {
+        incorrectAnswers++
+      }
     }
 
     alert("You answered " + correctAnswers + " questions correctly and " + incorrectAnswers + " questions incorrectly");
@@ -182,4 +150,5 @@
     
     // if user submits before time is over, stop time and run submit function
     $("#submit-quiz").on("click", submit)
+
   })  
