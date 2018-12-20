@@ -9,50 +9,86 @@
   // variables
   var intervalId;
   //var clockRunning = false;
-  var time = 10; 
+  var time = 20; 
   var correctAnswers = 0;
-  var incorrectAnswers = 0
-  var totalQuestions = 6
+  var incorrectAnswers = 0;
+  var totalQuestions = 6;
 
-  // answer array
-  var answers = ["first answer", "second answer", "third answer", "fourth answer", "fifth answer", "sixth answer" ]
+  // question and answer array
+  var questionsArr = {
+    questionOne: {
+      question: "Alexander the Great was taught by which Greek philosopher?",
+      correctAnswer: "Aristotle",
+      userInput: ""
+    },
+    questionTwo: {
+      question: "Which country financed Christopher Columbus' 1492 exploration?",
+      correctAnswer: "Spain",
+      userInput: ""
+    },
+    questionThree: {
+      question: "Jack the Ripper is the name given to an unidentified serial killer that terrorized what city in 1888?",
+      correctAnswer: "London",
+      userInput: ""
+    },
+    questionFour: {
+      question: "American mobster Al Capone was sentanced to 11 years in prison for what crime?",
+      correctAnswer: "Tax evasion",
+      userInput: ""
+    },
+    questionFive: {
+      question: "Which explorer was the first credited with circumnavigating the earth?",
+      correctAnswer: "Ferdinand Magellan",
+      userInput: ""
+    },
+    questionSix: {
+      question: "Who painted the Sistine Chapel?",
+      correctAnswer: "Michelangelo",
+      userInput: ""
+    }
+  };
   
+  // answer array
+  var answersArr = []
 
-  // quiz questions
-  // var questions = [
-  // {
-  //   question: "XYZ",
-  //   choices: ["ans1", "ans2", "ans3", "ans4"],
-  //   correctAnswer: [1]
-  // },
-  // {
-  //   question: "ABC",
-  //   choices: ["ans1", "ans2", "ans3", "ans4"],
-  //   correctAnswer: [0],
-  // },
-  // {
-  //   question: "DEF",
-  //   choices: ["ans1", "ans2", "ans3", "ans4"],
-  //   correctAnswer: [3],
-  // },
-  // {
-  //   question: "GHI",
-  //   choices: ["ans1", "ans2", "ans3", "ans4"],
-  //   correctAnswer: [1],
-  // },
-  // {
-  //   question: "JKL",
-  //   choices: ["ans1", "ans2", "ans3", "ans4"],
-  //   correctAnswer: [2],
-  // },
-  // {
-  //   question: "MNO",
-  //   choices: ["ans1", "ans2", "ans3", "ans4"],
-  //   correctAnswer: [1]
+  // function userAnswers() { 
+
   // }
-  // ]
 
+  // store user answers
+  // $("#questionone").on("change", function() {
+  //   questionsArr.questionOne.userInput = $(this).val()
+  // })
 
+  $("#questionone").on("change", function() {
+    questionsArr.questionOne.userInput = $("input[name='question1']:checked").val();
+    console.log(questionsArr.questionOne.userInput);
+  })
+
+  $("#questiontwo").on("change", function() {
+    questionsArr.questionTwo.userInput = $("input[name='question2']:checked").val();
+    console.log(questionsArr.questionTwo.userInput);
+  })
+  
+  $("#questionthree").on("change", function() {
+    questionsArr.questionThree.userInput = $("input[name='question3']:checked").val();
+    console.log(questionsArr.questionThree.userInput);
+  })
+
+  $("#questionfour").on("change", function() {
+    questionsArr.questionFour.userInput = $("input[name='question4']:checked").val();
+    console.log(questionsArr.questionFour.userInput);
+  })
+
+  $("#questionfive").on("change", function() {
+    questionsArr.questionFive.userInput = $("input[name='question5']:checked").val();
+    console.log(questionsArr.questionFive.userInput)
+  })
+
+  $("#questionsix").on("change", function() {
+    questionsArr.questionSix.userInput = $("input[name='question6']:checked").val();
+    console.log(questionsArr.questionSix.userInput)
+  })
 
   // Timer run function
   function run() {
@@ -62,9 +98,52 @@
   }
 
   // submit function to be run if time = 0 or user clicks submit button
+  // clears timer and checks answers
   function submit() {
     clearInterval(intervalId);
-    alert("You answered " + correctAnswers + " out of " + totalQuestions + "correctly")
+    if (questionsArr.questionOne.userInput === questionsArr.questionOne.correctAnswer) 
+      correctAnswers++
+
+    else (
+      incorrectAnswers++
+    )
+
+    if (questionsArr.questionTwo.userInput === questionsArr.questionTwo.correctAnswer)
+      correctAnswers++
+
+    else (
+      incorrectAnswers++
+    )
+
+    if (questionsArr.questionThree.userInput === questionsArr.questionThree.correctAnswer)
+      correctAnswers++
+
+    else (
+      incorrectAnswers++
+      )
+
+    if (questionsArr.questionFour.userInput === questionsArr.questionFour.correctAnswer)
+      correctAnswers++
+
+    else (
+      incorrectAnswers++
+      )
+
+    if (questionsArr.questionFive.userInput === questionsArr.questionFive.correctAnswer)
+      correctAnswers++
+
+    else (
+      incorrectAnswers++
+      )
+    
+    if(questionsArr.questionSix.userInput === questionsArr.questionSix.correctAnswer)
+      correctAnswers++
+
+    else (
+      incorrectAnswers++
+    )
+
+    alert("You answered " + correctAnswers + " out of " + totalQuestions + " correctly");
   }
 
   // Losing time! (decrease timer)
@@ -86,12 +165,4 @@
   console.log(time);
   
   // if user submits before time is over, stop time and run submit function
-  $("#submit-quiz").on("click", submit);  
-
-  if ($("Q1answer1" === answers[0] )) {
-    correctAnswers++
-  }
-
-  else {
-    incorrectAnswers++
-  }
+  $("#submit-quiz").on("click", submit)  
