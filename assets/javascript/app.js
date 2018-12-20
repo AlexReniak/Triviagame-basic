@@ -8,7 +8,6 @@
 
   // variables
   var intervalId;
-  //var clockRunning = false;
   var time = 20; 
   var correctAnswers = 0;
   var incorrectAnswers = 0;
@@ -47,19 +46,15 @@
       userInput: ""
     }
   };
-  
-  // answer array
-  var answersArr = []
 
-  // function userAnswers() { 
 
-  // }
 
   // store user answers
   // $("#questionone").on("change", function() {
   //   questionsArr.questionOne.userInput = $(this).val()
   // })
 
+  // storing user answers from their input
   $("#questionone").on("change", function() {
     questionsArr.questionOne.userInput = $("input[name='question1']:checked").val();
     console.log(questionsArr.questionOne.userInput);
@@ -90,79 +85,88 @@
     console.log(questionsArr.questionSix.userInput)
   })
 
-  // Timer run function
-  function run() {
-    clearInterval(intervalId);
-    intervalId = setInterval(decrement, 1000);
-
-  }
-
   // submit function to be run if time = 0 or user clicks submit button
-  // clears timer and checks answers
+  // clears timer and checks how many answer are correct and incorrect and then alerts user
   function submit() {
     clearInterval(intervalId);
-    if (questionsArr.questionOne.userInput === questionsArr.questionOne.correctAnswer) 
+    if (questionsArr.questionOne.userInput === questionsArr.questionOne.correctAnswer) { 
       correctAnswers++
-
-    else (
-      incorrectAnswers++
-    )
-
-    if (questionsArr.questionTwo.userInput === questionsArr.questionTwo.correctAnswer)
-      correctAnswers++
-
-    else (
-      incorrectAnswers++
-    )
-
-    if (questionsArr.questionThree.userInput === questionsArr.questionThree.correctAnswer)
-      correctAnswers++
-
-    else (
-      incorrectAnswers++
-      )
-
-    if (questionsArr.questionFour.userInput === questionsArr.questionFour.correctAnswer)
-      correctAnswers++
-
-    else (
-      incorrectAnswers++
-      )
-
-    if (questionsArr.questionFive.userInput === questionsArr.questionFive.correctAnswer)
-      correctAnswers++
-
-    else (
-      incorrectAnswers++
-      )
-    
-    if(questionsArr.questionSix.userInput === questionsArr.questionSix.correctAnswer)
-      correctAnswers++
-
-    else (
-      incorrectAnswers++
-    )
-
-    alert("You answered " + correctAnswers + " out of " + totalQuestions + " correctly");
-  }
-
-  // Losing time! (decrease timer)
-  // add timer to html
-  function decrement() {
-    time--
-    
-    $("#timer").html("<h2>" + "Time remaining: " + time + "</h2>");
-    
-  // if function for timer when it reaches zero (before submit button is clicked)
-    if (time === 0 ) {
-      alert("Time's up!");
-      submit();
     }
+
+    else {
+      incorrectAnswers++
+    }
+
+    if (questionsArr.questionTwo.userInput === questionsArr.questionTwo.correctAnswer) {
+      correctAnswers++
+    }
+
+    else {
+      incorrectAnswers++
+    }
+
+    if (questionsArr.questionThree.userInput === questionsArr.questionThree.correctAnswer) {
+      correctAnswers++
+    }
+
+    else {
+      incorrectAnswers++
+    }
+
+    if (questionsArr.questionFour.userInput === questionsArr.questionFour.correctAnswer) {
+      correctAnswers++
+    }
+
+    else {
+      incorrectAnswers++
+    }
+
+    if (questionsArr.questionFive.userInput === questionsArr.questionFive.correctAnswer) {
+      correctAnswers++
+    }
+
+    else {
+      incorrectAnswers++
+    }
+    
+    if(questionsArr.questionSix.userInput === questionsArr.questionSix.correctAnswer) {
+      correctAnswers++
+    }
+
+    else {
+      incorrectAnswers++
+    }
+
+    alert("You answered " + correctAnswers + " questions correctly and " + incorrectAnswers + " questions incorrectly");
   }
-  
-  // start timer when start button is clicked
-  $("#start-timer").on("click", run) 
-  console.log(time);
-  
-  // if user submits before time is over, stop time and run submit function
-  $("#submit-quiz").on("click", submit)  
+
+  // document.ready so page loads before js is accessable
+  $(document).ready(function() {
+
+    // Timer run function
+    function run() {
+      clearInterval(intervalId);
+      intervalId = setInterval(decrement, 1000);
+    }
+
+    // Losing time! (decrease timer)
+    // add timer to html
+    function decrement() {
+      time--
+      
+      $("#timer").html("<h2>" + "Time remaining: " + time + "</h2>");
+      
+    // if function for timer when it reaches zero (before submit button is clicked)
+      if (time === 0 ) {
+        alert("Time's up!");
+        submit();
+      }
+    }
+    
+    // start timer when start button is clicked
+    $("#start-timer").on("click", run) 
+    console.log(time);
+    
+    // if user submits before time is over, stop time and run submit function
+    $("#submit-quiz").on("click", submit)
+  })  
