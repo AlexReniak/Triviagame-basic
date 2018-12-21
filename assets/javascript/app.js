@@ -8,7 +8,7 @@
 
   // variables
   var intervalId;
-  var time = 20; 
+  var time = 120; 
   var correctAnswers = 0;
   var incorrectAnswers = 0;
   var totalQuestions = 6;
